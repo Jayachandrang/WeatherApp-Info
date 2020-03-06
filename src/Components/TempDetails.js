@@ -1,69 +1,59 @@
-import React, { useState } from 'react';
-
-import TempCardDetails from './TempCardDetails';
+import React, { useState, useEffect } from 'react';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
 import TempChart from './TempChart'
 
 
-import { useDispatch, useSelector } from "react-redux"
-
-import { Forward } from '@material-ui/icons'
-import { fetchReport } from './../Actions/weatherActions'
-
-import TempSelection from './TempSelection'
-
-
-export default function TempDetails({ data }) {
+export default function TempDetails({ data, datesList, format }) {
 
     const [chartData, setChartData] = useState([]);
-    const [date, setdate] = useState([]);
-    const [format, setFormat] = useState('Celcius');
-    const dispatch = useDispatch()
+    const [selDate, setSelDate] = useState('');
+    const [isSelected, setIsSelected] = useState(false);
 
-    let reportList = data.report
-    const selectedDate = date => {
+    useEffect(() => {
+        if (data[selDate])
+            setChartData(data[selDate])
 
-        setdate(date)
-        let selDate = date.split(' ')[0];
-        let newData = reportList.filter(x => (x.dt_txt).indexOf(selDate) > -1)
+        if (!selDate && datesList.length > 0) {
+            setSelDate(datesList[0])
+            setChartData(data[datesList[0]])
+        }
+    }, [datesList, data, isSelected])
 
-        let data = [];
-        newData.forEach(element => {
-            let ele = {
-                text: element.dt_txt.split(' ')[1],
-                value: format === 'Celcius' ? element.main.temp : element.main.temp_kf
-            }
-            data.push(ele)
-        });
-        setChartData(data)
-    };
-
-    const handleChange = value => {
-        setFormat(value)
-        dispatch(fetchReport())
-        selectedDate(date)
-    };
-
-    const listItems = reportList.map((item) =>
-
-        <TempCardDetails
-            key={item.dt.toString()}
-            item={item}
-            selectedDate={selectedDate}
-        />
-    );
+    const listItems = datesList.map((item) => {
+        if (data[item] && data[item].length > 0) {
+            return <Card
+                key={item}
+                onClick={() => {
+                    setIsSelected(!isSelected)
+                    setSelDate(item)
+                    setChartData(data[item])
+                }}
+                className={(isSelected && data[item][0].date === selDate ? 'active' : '') + ' card-size'}>
+                <CardContent >
+                    <Typography variant="h5" component="h2">
+                        Temp:
+                            </Typography>
+                    <Typography variant="h5" component="h2">
+                        {data[item][0].value} {format[0]}
+                            </Typography>
+                    <Typography variant="h5" component="h2">
+                        Date:
+                            </Typography>
+                    <Typography variant="h5" component="h2">
+                        {data[item][0].date}
+                    </Typography>
+                </CardContent>
+            </Card>
+        }
+        return ''
+    });
 
     return (
         <div>
-            <TempSelection handleChange={handleChange} />
-
-            <div className="navigation">
-                <Forward className="backward" />
-                <Forward className="forward" />
-            </div>
-
             {listItems}
             {chartData.length > 0 ? <TempChart data={chartData} /> : ''}
-
         </div>
     )
 }

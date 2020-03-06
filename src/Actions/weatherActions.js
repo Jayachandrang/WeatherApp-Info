@@ -4,7 +4,7 @@ import  { FETCH_WEATHER_REPORT_REQUEST, FETCH_WEATHER_REPORT_SUCCESS, FETCH_WEAT
 
 const APPID= '75f972b80e26f14fe6c920aa6a85ad57'
 const LOCATION= 'Munich'
-const COUNT= 24
+const COUNT= 40
 const URL= `http://api.openweathermap.org/data/2.5/forecast?q=${LOCATION}&APPID=${APPID}&cnt=${COUNT}`
 
 const fetchWeatherReportRequest = () => {

@@ -4,7 +4,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 
-export default function TempSelection({handleChange}) {
+export default function TempSelection({selTempFormat}) {
 
     const [value, setValue] = useState('Celcius');
   
@@ -12,7 +12,7 @@ export default function TempSelection({handleChange}) {
         <FormControl component="fieldset">
             <RadioGroup aria-label="position" row name="position" value={value} onChange={(event) => {
                     setValue(event.target.value);
-                    handleChange(event.target.value);
+                    selTempFormat(event.target.value);
                 }} >
                 <FormControlLabel
                     value="Celcius"
@@ -20,7 +20,6 @@ export default function TempSelection({handleChange}) {
                     label="Celcius"
                     labelPlacement="end"
                 />
-                
                 <FormControlLabel
                     value="Fahrenheit"
                     control={<Radio color="primary" />}
