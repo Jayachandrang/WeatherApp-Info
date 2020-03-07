@@ -1,5 +1,6 @@
 {
   "name": "weather-forecast",
+  "homepage": "https://jayachandrang.github.io/WeatherApp-Info/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,6 +10,7 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
+    "gh-pages": "^2.2.0",
     "moment": "^2.24.0",
     "react": "^16.13.0",
     "react-bar-chart": "^0.1.2",
@@ -22,6 +24,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "deploy": "gh-pages -b master -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
