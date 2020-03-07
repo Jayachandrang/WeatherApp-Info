@@ -9,3 +9,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 
+## Sample Screenshots
+
+[!alt Text] (Screenshot 2020-03-07 at 10.48.51 AM)
