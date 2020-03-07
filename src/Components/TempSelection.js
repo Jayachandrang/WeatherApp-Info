@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
+import React, { useState } from 'react'
+import Radio from '@material-ui/core/Radio'
+import RadioGroup from '@material-ui/core/RadioGroup'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import FormControl from '@material-ui/core/FormControl'
+import * as constants from './../Common/constant'
 
 export default function TempSelection({selTempFormat}) {
 
-    const [value, setValue] = useState('Celcius');
+    const [value, setValue] = useState(constants.CELCIUS)
   
     return (
         <FormControl component="fieldset">
@@ -15,16 +16,17 @@ export default function TempSelection({selTempFormat}) {
                     selTempFormat(event.target.value);
                 }} >
                 <FormControlLabel
-                    value="Celcius"
-                    control={<Radio color="primary" />}
-                    label="Celcius"
-                    labelPlacement="end"
+                    value= {constants.CELCIUS}
+                    control= {<Radio color="primary" />}
+                    label= {constants.CELCIUS}
+                    labelPlacement= "end"
                 />
+                
                 <FormControlLabel
-                    value="Fahrenheit"
-                    control={<Radio color="primary" />}
-                    label="Fahrenheit"
-                    labelPlacement="end"
+                    value= {constants.FAHRENHEIT}
+                    control= {<Radio color="primary" />}
+                    label= {constants.FAHRENHEIT}
+                    labelPlacement= "end"
                 />
             </RadioGroup>
         </FormControl>

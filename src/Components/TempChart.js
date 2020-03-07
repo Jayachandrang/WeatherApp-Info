@@ -16,18 +16,14 @@ export default function TempChart(report) {
 	},[chartWidth])
 	   
     return (
-        
         <div ref={chartRef}>
             <div style={{width: '100%'}}> 
                 <BarChart
                     width={chartWidth}
                     height={500}
                     margin={margin}
-                    data={data}
-                />
+                    data={data}/>
             </div>
-        </div>
-
-        
+        </div>        
     )
 }

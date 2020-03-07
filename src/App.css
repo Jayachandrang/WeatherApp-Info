@@ -7,7 +7,11 @@
 }
 
 .MuiRadio-colorPrimary.Mui-checked {
-  color: steelblue;
+  color: steelblue !important;
+}
+
+.MuiCard-root {
+  border: 1px solid #EEEEEE;
 }
 
 .navigation {
@@ -44,7 +48,7 @@
 }
 
 .bar:hover {
-  fill: brown;
+  fill: #084679;
 }
 
 .axis {
@@ -64,8 +68,13 @@
 }
 
 .active {
-  border: 1px solid steelblue;;
+  border: 2px solid steelblue;
 }
+
+.degrees {
+  width: 0.5em !important;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

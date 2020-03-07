@@ -1,11 +1,10 @@
 import axios from 'axios'
+import * as constants from './../Common/constant'
 import  { FETCH_WEATHER_REPORT_REQUEST, FETCH_WEATHER_REPORT_SUCCESS, FETCH_WEATHER_REPORT_FAILURE } from './actionTypes'
 
 
-const APPID= '75f972b80e26f14fe6c920aa6a85ad57'
-const LOCATION= 'Munich'
-const COUNT= 40
-const URL= `http://api.openweathermap.org/data/2.5/forecast?q=${LOCATION}&APPID=${APPID}&cnt=${COUNT}`
+
+const URL= `http://api.openweathermap.org/data/2.5/forecast?q=${constants.LOCATION}&APPID=${constants.APPID}&cnt=${constants.COUNT}`
 
 const fetchWeatherReportRequest = () => {
     return {

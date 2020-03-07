@@ -1,0 +1,10 @@
+export const TITLE = "Weather Info"
+export const DATE_FORMAT = "DD-MMM-YYYY"
+export const HOUR_FORMAT = "H:00"
+export const FAHRENHEIT = "Fahrenheit"
+export const CELCIUS = "Celcius"
+export const DEFAULT_SEL_DATE_INDEX = 0
+export const ITEMS_PER_PAGE = 3
+export const APPID= "75f972b80e26f14fe6c920aa6a85ad57"
+export const LOCATION= "Munich,de"
+export const COUNT= 40
