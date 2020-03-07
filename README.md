@@ -11,8 +11,8 @@ The page will reload if you make edits.<br />
 
 ## Sample Screenshots
 
-![alt text] (LandingWeatherPage.png)
+![alt text](LandingWeatherPage.png)
 
-![alt text] (cardSelection.png)
+![alt text](cardSelection.png)
 
-![alt text] (barchart.png)
+![alt text](barchart.png)
