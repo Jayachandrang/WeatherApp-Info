@@ -1,4 +1,4 @@
-## Available Scripts
+## Weather App Info
 
 In the project directory, you can run:
 
